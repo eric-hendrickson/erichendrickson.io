@@ -1,7 +1,9 @@
-import Navbar from '@/components/Navbar'
 import './globals.css'
+import { Lato } from 'next/font/google'
+
 import ILink from '@/models/ILink'
 import Header from '@/components/Header'
+import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata = {
@@ -19,14 +21,19 @@ const links: ILink[] = [
       url: '#about-me'
   },
   {
-      label: 'Services',
-      url: '#'
+      label: 'My Work',
+      url: '#my-work'
   },
   {
       label: 'Contact',
-      url: '#'
+      url: '#contact'
   }
-]
+];
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: '300'
+});
 
 export default function RootLayout({
   children,
@@ -35,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${lato.className} text-black`}>
         <Header />
         <Navbar links={links} />
         {children}
