@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 .lg-width-half-minus-gap-4 {
-  width: calc(50% - 0.5rem);
+  /* @media lg { */
+    width: calc(50% - 0.5rem);
+  /* } */
 }
 
 :root {
