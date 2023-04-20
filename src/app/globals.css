@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.lg-width-half-minus-gap-4 {
-  /* @media lg { */
+.project-article-width {
+  width: 100%;
+
+  @screen lg {
     width: calc(50% - 0.5rem);
-  /* } */
+  }
 }
 
 :root {

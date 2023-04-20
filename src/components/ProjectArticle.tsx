@@ -8,7 +8,7 @@ export default function ProjectArticle({ title, technologies, imageLink }: IProj
     const technologiesText: string = technologies.join(", ")
 
     return (
-        <article className="flex flex-row lg-width-half-minus-gap-4 p-4 bg-slate-200 rounded shadow">
+        <article className="flex flex-row project-article-width p-4 bg-slate-200 rounded shadow">
             <img className="border border-gray-700 rounded" src={imageLink}></img>
             <div className="ml-6 w-max text-black">
                 <h2 className="text-xl">{ title }</h2>
