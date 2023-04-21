@@ -1,8 +1,10 @@
 {
   "extends": [
     "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:tailwindcss/recommended"
+    "plugin:tailwindcss/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "env": {
     "browser": true,
@@ -15,5 +17,27 @@
       "jsx": true
     }
   },
-  "plugins": ["tailwindcss"]
+  "rules": {
+    "eqeqeq": "error",
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "plugins": [
+    "tailwindcss",
+    "prettier",
+    "react",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    "build",
+    "dist",
+    "public"
+  ]
 }
