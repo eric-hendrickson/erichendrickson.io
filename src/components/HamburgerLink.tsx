@@ -1,4 +1,4 @@
-import ILink from '@/models/ILink';
+import { ILink } from '@/models/ILink';
 
 export default function HamburgerLink({ label, url }: ILink) {
   return (

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import ILink from '@/models/ILink';
 
 import HamburgerLink from './HamburgerLink';
 import NavbarLink from './NavbarLink';
@@ -9,6 +8,7 @@ import NavbarLink from './NavbarLink';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwind/config';
 import { KeyValuePair } from 'tailwindcss/types/config';
+import { ILink } from '@/models/ILink';
 
 const fullConfig = resolveConfig(tailwindConfig);
 const MD_BREAKPOINT = parseInt((fullConfig?.theme?.screens as KeyValuePair<string, string>)['md']);

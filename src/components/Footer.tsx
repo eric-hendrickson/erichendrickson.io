@@ -8,6 +8,7 @@ export default function Footer() {
           <a className="font-bold text-blue-400 underline" target="_blank" href="https://nextjs.org/" rel="noreferrer">
             here
           </a>
+          .
         </p>
       </div>
     </footer>

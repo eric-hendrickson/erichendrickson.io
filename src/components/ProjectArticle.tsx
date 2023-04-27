@@ -12,7 +12,7 @@ export default function ProjectArticle({ title, technologies, imageLink }: IProj
       <img className="rounded border border-gray-700" src={imageLink}></img>
       <div className="ml-6 w-max text-black">
         <h2 className="text-xl">{title}</h2>
-        <h3 className="text-l">
+        <h3 className="text-lg">
           <span className="italic">Technologies: </span>
           {technologiesText}
         </h3>

@@ -1,10 +1,11 @@
-import styles from './globals.css';
+import './globals.css';
 import { Lato } from 'next/font/google';
 
-import ILink from '@/models/ILink';
+import { ILink } from '@/models/ILink';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import React from 'react';
 
 export const metadata = {
   title: 'Eric Hendrickson - Software Engineer',
@@ -38,7 +39,7 @@ const lato = Lato({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${styles.body} ${lato.className} text-black`}>
+      <body className={`${lato.className} text-black`}>
         <Header />
         <Navbar links={links} />
         {children}

@@ -1,4 +1,4 @@
-import ILink from '@/models/ILink';
+import { ILink } from '@/models/ILink';
 
 export default function NavbarLink({ label, url }: ILink) {
   return (
