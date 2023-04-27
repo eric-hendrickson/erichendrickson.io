@@ -33,6 +33,7 @@ export default function Home() {
             title="ActiveHealth Management / CVS"
             technologies={['Typescript', 'React', 'Redux', 'SCSS']}
             imageLink="/activehealth.avif"
+            imageAltText="ActiveHealth Management"
           />
           <ProjectArticle
             title="ActiveHealth Management / CVS"
