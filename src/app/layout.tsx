@@ -33,13 +33,13 @@ const links: ILink[] = [
 
 const lato = Lato({
   subsets: ['latin'],
-  weight: '300',
+  weight: '400',
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${lato.className} text-black`}>
+    <html lang="en" className={lato.className}>
+      <body className="text-black">
         <Header />
         <Navbar links={links} />
         {children}
