@@ -1,4 +1,4 @@
-import './globals.css';
+import styles from './globals.css';
 import { Lato } from 'next/font/google';
 
 import ILink from '@/models/ILink';
@@ -38,7 +38,7 @@ const lato = Lato({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} text-black`}>
+      <body className={`${styles.body} ${lato.className} text-black`}>
         <Header />
         <Navbar links={links} />
         {children}
