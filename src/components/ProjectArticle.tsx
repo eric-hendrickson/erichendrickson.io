@@ -1,11 +1,5 @@
 import Image from 'next/image';
-
-interface IProjectArticle {
-    title: string;
-    technologies: string[];
-    imageLink: string;
-    imageAltText?: string;
-}
+import { IProjectArticle } from '@/models/IProjectArticle';
 
 export default function ProjectArticle({ title, technologies, imageLink, imageAltText }: IProjectArticle) {
     const technologiesText: string = technologies.join(', ');

@@ -32,7 +32,7 @@ export default function Home() {
                 <div className="mx-auto flex w-full max-w-screen-2xl flex-wrap items-center justify-between gap-4 p-4 text-black">
                     <ProjectArticle
                         title="Crumboard"
-                        technologies={['Typescript', 'Angular 9', 'SCSS']}
+                        technologies={['Typescript', 'Angular', 'SCSS', 'MySQL']}
                         imageLink="/crumboard.avif"
                         imageAltText="Crumboard"
                     />
@@ -44,19 +44,19 @@ export default function Home() {
                     />
                     <ProjectArticle
                         title="Local Food Buzz"
-                        technologies={['Java 11', 'Spring Boot', 'Typescript', 'React', 'Redux', 'SCSS']}
+                        technologies={['Java 11', 'Spring Boot', 'PostgreSQL', 'Typescript', 'React', 'Redux', 'SCSS']}
                         imageLink="/localfoodbuzz.svg"
                         imageAltText="Local Food Buzz"
                     />
                     <ProjectArticle
                         title="MPA Piracy Tracker"
-                        technologies={['Java 8', 'Spring Boot', 'Typescript', 'React', 'Redux', 'SCSS']}
+                        technologies={['Java 8', 'Spring Boot', 'PostgreSQL', 'Typescript', 'React', 'Redux', 'SCSS']}
                         imageLink="/mpa.png"
                         imageAltText="Motion Picture Association"
                     />
                     <ProjectArticle
                         title="Inspire Insight"
-                        technologies={['Java 8', 'Spring Boot', 'Typescript', 'Angular 5-7', 'Redux', 'SCSS']}
+                        technologies={['Java 8', 'Spring Boot', 'PostgreSQL', 'Typescript', 'Angular', 'SCSS']}
                         imageLink="/inspireinsight.svg"
                         imageAltText="Inspire Insight"
                     />
@@ -65,6 +65,12 @@ export default function Home() {
                         technologies={['PostgreSQL', 'JSON/JSONP', 'Ruby on Rails', 'Javascript']}
                         imageLink="/qcentrix.svg"
                         imageAltText="Q-Centrix"
+                    />
+                    <ProjectArticle
+                        title="MK Decision"
+                        technologies={['Node.js', 'AWS Lambda', 'AWS DynamoDB', 'AWS API Gateway']}
+                        imageLink="/mkdecision.png"
+                        imageAltText="MK Decision"
                     />
                 </div>
             </section>
