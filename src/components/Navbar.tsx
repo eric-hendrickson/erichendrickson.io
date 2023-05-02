@@ -38,7 +38,9 @@ export default function Navbar({ links }: { links: ILink[] }) {
                         <span className="whitespace-nowrap text-xl font-semibold dark:text-white">
                             Eric Hendrickson
                         </span>
-                        <span className="whitespace-nowrap font-semibold dark:text-white">Software Engineer</span>
+                        <span className="whitespace-nowrap font-semibold dark:text-white">
+                            Full Stack Software Engineer
+                        </span>
                     </div>
                 </a>
                 <div

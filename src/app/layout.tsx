@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import React from 'react';
 
 export const metadata = {
-    title: 'Eric Hendrickson - Software Engineer',
+    title: 'Eric Hendrickson - Full Stack Software Engineer',
     description: 'Portfolio page for Eric Hendrickson',
 };
 

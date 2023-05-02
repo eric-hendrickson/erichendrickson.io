@@ -1,4 +1,4 @@
-import HomepageSection from './HomepageSection';
+import HomepageSection from '@/components/homepage/HomepageSection';
 
 export default function AboutMe() {
     return (
