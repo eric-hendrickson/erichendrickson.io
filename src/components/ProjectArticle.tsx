@@ -5,9 +5,9 @@ export default function ProjectArticle({ title, technologies, imageLink, imageAl
     const technologiesText: string = technologies.join(', ');
 
     return (
-        <article className="project-article-width flex flex-row rounded bg-slate-200 p-4 shadow">
+        <article className="project-article-width flex flex-row rounded bg-gradient-to-br from-slate-300 from-60% to-cyan-200 p-4 shadow">
             <Image
-                className="rounded border border-gray-700"
+                className="rounded"
                 src={imageLink}
                 alt={imageAltText ? imageAltText : ''}
                 loading="eager"
