@@ -14,10 +14,8 @@ export default function Contact() {
                 <p className="my-2 mb-8 py-2 text-center text-xl">
                     No problem! Feel free to send me a message using the form below!
                 </p>
-                <Box
-                    component="form"
+                <form
                     onSubmit={() => console.log('submitted')}
-                    noValidate
                     className="w-full rounded bg-gradient-to-br from-yellow-50 to-cyan-200 px-7 py-2 md:w-11/12"
                 >
                     <TextField
@@ -54,7 +52,7 @@ export default function Contact() {
                     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} className="bg-green-700">
                         Send Message
                     </Button>
-                </Box>
+                </form>
             </div>
         </HomepageSection>
     );

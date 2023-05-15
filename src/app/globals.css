@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.project-article-width {
-  width: 100%;
+@layer components {
+  .project-article-width {
+    width: 100%;
 
-  @screen lg {
-    width: calc(50% - 0.5rem);
+    @screen lg {
+      width: calc(50% - 0.5rem);
+    }
   }
 }
 
