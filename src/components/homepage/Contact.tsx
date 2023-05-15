@@ -1,7 +1,7 @@
 'use client';
 
 import HomepageSection from '@/components/homepage/HomepageSection';
-import { Box, TextField, Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 
 export default function Contact() {
     return (
@@ -36,7 +36,6 @@ export default function Contact() {
                         label="Email Address"
                         name="email"
                         autoComplete="email"
-                        autoFocus
                     />
                     <TextField
                         margin="normal"
@@ -47,7 +46,6 @@ export default function Contact() {
                         id="message"
                         label="Message"
                         name="message"
-                        autoFocus
                     />
                     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} className="bg-green-700">
                         Send Message
