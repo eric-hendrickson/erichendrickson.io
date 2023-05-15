@@ -12,8 +12,8 @@ export default function AboutMe() {
                 </p>
                 <p className="py-4 text-xl">
                     I have worked on both front end and back end for a variety of projects. The clients I have done work
-                    include CVS and the Motion Picture Association, along with others. Lately, my new favorite framework
-                    to play with is Next.js (in fact, I made this page using it).
+                    for include CVS and the Motion Picture Association, along with others. Lately, my new favorite
+                    framework to play with is Next.js (in fact, I made this page using it).
                 </p>
                 <p className="py-4 text-xl">
                     Feel free to connect with me or follow me on the following socials, or view or download my resume.
