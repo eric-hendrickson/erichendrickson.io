@@ -23,7 +23,7 @@ export default function Contact() {
                         required
                         fullWidth
                         name="name"
-                        label="Name"
+                        label="Full Name"
                         type="text"
                         id="name"
                         autoComplete="name"
