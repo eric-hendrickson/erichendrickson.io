@@ -4,7 +4,6 @@ phases:
   install:
     runtime-versions:
       nodejs: 18
-  pre_build:
     commands:
       - echo Installing Next.js app dependencies...
       - npm install next -g
