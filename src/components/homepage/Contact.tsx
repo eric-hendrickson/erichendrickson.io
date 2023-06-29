@@ -20,13 +20,13 @@ export default function Contact() {
         return false;
     };
 
-    const handleSubmit = async (event: Event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event?.preventDefault();
+
         try {
             await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
