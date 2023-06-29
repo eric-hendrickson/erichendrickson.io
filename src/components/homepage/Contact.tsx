@@ -2,8 +2,44 @@
 
 import HomepageSection from '@/components/homepage/HomepageSection';
 import { TextField, Button } from '@mui/material';
+import { useState } from 'react';
+
+const EMAIL_REGEX =
+    // eslint-disable-next-line no-empty-character-class
+    /([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+/;
 
 export default function Contact() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const formIsValid = () => {
+        if (name.length && message.length && EMAIL_REGEX.test(email)) {
+            return true;
+        }
+        return false;
+    };
+
+    const handleSubmit = async (event: Event) => {
+        event?.preventDefault();
+        try {
+            await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                }),
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <HomepageSection id="contact" heading="Contact" sectionBackgroundColor="bg-blue-300">
             <div className="mx-auto mb-8 flex max-w-screen-2xl flex-col flex-wrap items-center justify-center">
@@ -15,7 +51,7 @@ export default function Contact() {
                     No problem! Feel free to send me a message using the form below!
                 </p>
                 <form
-                    onSubmit={() => console.log('submitted')}
+                    onSubmit={handleSubmit}
                     className="w-full rounded bg-gradient-to-br from-yellow-50 to-cyan-200 px-7 py-2 md:w-11/12"
                 >
                     <TextField
@@ -27,6 +63,10 @@ export default function Contact() {
                         type="text"
                         id="name"
                         autoComplete="name"
+                        value={name}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setName(event.target.value);
+                        }}
                     />
                     <TextField
                         margin="normal"
@@ -36,6 +76,10 @@ export default function Contact() {
                         label="Email Address"
                         name="email"
                         autoComplete="email"
+                        value={email}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setEmail(event.target.value);
+                        }}
                     />
                     <TextField
                         margin="normal"
@@ -46,8 +90,19 @@ export default function Contact() {
                         id="message"
                         label="Message"
                         name="message"
+                        value={message}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setMessage(event.target.value);
+                        }}
                     />
-                    <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} className="bg-green-700">
+                    <Button
+                        type="submit"
+                        disabled={!formIsValid()}
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        className="bg-green-700"
+                    >
                         Send Message
                     </Button>
                 </form>
