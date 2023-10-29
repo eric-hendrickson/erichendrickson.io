@@ -78,6 +78,9 @@ export default function Contact() {
                 }),
             });
             if (response.status === 200) {
+                setName('');
+                setEmail('');
+                setMessage('');
                 alert('Email sent!');
             }
         } catch (error) {
