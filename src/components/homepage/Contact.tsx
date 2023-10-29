@@ -81,7 +81,7 @@ export default function Contact() {
                 setName('');
                 setEmail('');
                 setMessage('');
-                alert('Email sent!');
+                return alert('Email has been successfully sent');
             }
         } catch (error) {
             // eslint-disable-next-line no-console
