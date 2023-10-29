@@ -1,12 +1,9 @@
 'use client';
 
 import HomepageSection from '@/components/homepage/HomepageSection';
+import { EMAIL_REGEX } from '@/globalsConstants';
 import { TextField, Button } from '@mui/material';
 import { useState } from 'react';
-
-const EMAIL_REGEX =
-    // eslint-disable-next-line no-empty-character-class
-    /([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+/;
 
 export default function Contact() {
     const [name, setName] = useState('');
@@ -24,7 +21,52 @@ export default function Contact() {
         event?.preventDefault();
 
         try {
-            await fetch('/api/contact', {
+            let badRequest = false;
+            let noName = false;
+            let noEmail = false;
+            let badEmailFormat = false;
+            let noMessage = false;
+
+            if (!name || typeof name !== 'string') {
+                noName = true;
+                badRequest = true;
+            }
+
+            if (!email || typeof email !== 'string') {
+                noEmail = true;
+                badRequest = true;
+            } else {
+                if (!email.match(EMAIL_REGEX)) {
+                    badEmailFormat = true;
+                    badRequest = true;
+                }
+            }
+
+            if (!message || typeof message !== 'string') {
+                noMessage = true;
+                badRequest = true;
+            }
+
+            if (badRequest) {
+                const errorMessageArray = [];
+                if (noName) {
+                    errorMessageArray.push('value "name" is not present or is invalid');
+                }
+                if (noEmail) {
+                    errorMessageArray.push('value "email" is not present or is invalid');
+                }
+                if (badEmailFormat) {
+                    errorMessageArray.push('value "email" is improperly formatted');
+                }
+                if (noMessage) {
+                    errorMessageArray.push('value "message" is not present or is invalid');
+                }
+                const errorMessage = errorMessageArray.join('; ');
+
+                throw new Error(errorMessage);
+            }
+
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +77,11 @@ export default function Contact() {
                     message,
                 }),
             });
+            if (response.status === 200) {
+                alert('Email sent!');
+            }
         } catch (error) {
+            // eslint-disable-next-line no-console
             console.log(error);
         }
     };
