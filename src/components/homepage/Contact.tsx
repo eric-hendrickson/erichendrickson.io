@@ -1,9 +1,91 @@
 'use client';
 
 import HomepageSection from '@/components/homepage/HomepageSection';
+import { EMAIL_REGEX } from '@/globalsConstants';
 import { TextField, Button } from '@mui/material';
+import { useState } from 'react';
 
 export default function Contact() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const formIsValid = () => {
+        if (name.length && message.length && EMAIL_REGEX.test(email)) {
+            return true;
+        }
+        return false;
+    };
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event?.preventDefault();
+
+        try {
+            let badRequest = false;
+            let noName = false;
+            let noEmail = false;
+            let badEmailFormat = false;
+            let noMessage = false;
+
+            if (!name || typeof name !== 'string') {
+                noName = true;
+                badRequest = true;
+            }
+
+            if (!email || typeof email !== 'string') {
+                noEmail = true;
+                badRequest = true;
+            } else {
+                if (!email.match(EMAIL_REGEX)) {
+                    badEmailFormat = true;
+                    badRequest = true;
+                }
+            }
+
+            if (!message || typeof message !== 'string') {
+                noMessage = true;
+                badRequest = true;
+            }
+
+            if (badRequest) {
+                const errorMessageArray = [];
+                if (noName) {
+                    errorMessageArray.push('value "name" is not present or is invalid');
+                }
+                if (noEmail) {
+                    errorMessageArray.push('value "email" is not present or is invalid');
+                }
+                if (badEmailFormat) {
+                    errorMessageArray.push('value "email" is improperly formatted');
+                }
+                if (noMessage) {
+                    errorMessageArray.push('value "message" is not present or is invalid');
+                }
+                const errorMessage = errorMessageArray.join('; ');
+
+                throw new Error(errorMessage);
+            }
+
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                }),
+            });
+            if (response.status === 200) {
+                alert('Email sent!');
+            }
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+        }
+    };
+
     return (
         <HomepageSection id="contact" heading="Contact" sectionBackgroundColor="bg-blue-300">
             <div className="mx-auto mb-8 flex max-w-screen-2xl flex-col flex-wrap items-center justify-center">
@@ -15,7 +97,7 @@ export default function Contact() {
                     No problem! Feel free to send me a message using the form below!
                 </p>
                 <form
-                    onSubmit={() => console.log('submitted')}
+                    onSubmit={handleSubmit}
                     className="w-full rounded bg-gradient-to-br from-yellow-50 to-cyan-200 px-7 py-2 md:w-11/12"
                 >
                     <TextField
@@ -27,6 +109,10 @@ export default function Contact() {
                         type="text"
                         id="name"
                         autoComplete="name"
+                        value={name}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setName(event.target.value);
+                        }}
                     />
                     <TextField
                         margin="normal"
@@ -36,6 +122,10 @@ export default function Contact() {
                         label="Email Address"
                         name="email"
                         autoComplete="email"
+                        value={email}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setEmail(event.target.value);
+                        }}
                     />
                     <TextField
                         margin="normal"
@@ -46,8 +136,19 @@ export default function Contact() {
                         id="message"
                         label="Message"
                         name="message"
+                        value={message}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setMessage(event.target.value);
+                        }}
                     />
-                    <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} className="bg-green-700">
+                    <Button
+                        type="submit"
+                        disabled={!formIsValid()}
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        className="bg-green-700"
+                    >
                         Send Message
                     </Button>
                 </form>
