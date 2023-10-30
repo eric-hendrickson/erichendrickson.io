@@ -63,8 +63,12 @@ export async function POST(request: NextRequest) {
             },
             body: JSON.stringify({ name, email, message }),
         });
+        // eslint-disable-next-line no-console
+        console.log(response);
         return response;
     } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
         return error;
     }
 
