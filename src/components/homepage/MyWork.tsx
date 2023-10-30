@@ -4,7 +4,7 @@ import HomepageSection from '@/components/homepage/HomepageSection';
 export default function MyWork() {
     return (
         <HomepageSection id="my-work" heading="My Work" sectionBackgroundColor="bg-amber-700" textColor="text-white">
-            <div className="mx-auto flex w-full max-w-screen-2xl flex-wrap items-center justify-between gap-4 p-4 text-black">
+            <div className="flex w-full max-w-screen-2xl flex-wrap items-center justify-between gap-4 pt-4 text-black">
                 <ProjectArticle
                     title="Crumboard"
                     technologies={['Typescript', 'Angular', 'SCSS', 'MySQL']}

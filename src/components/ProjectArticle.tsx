@@ -14,9 +14,9 @@ export default function ProjectArticle({ title, technologies, imageLink, imageAl
                 width={172}
                 height={172}
             />
-            <div className="ml-6 w-max text-black">
-                <h2 className="text-xl">{title}</h2>
-                <h3 className="text-lg">
+            <div className="ml-2 w-max text-black sm:ml-6">
+                <h2 className="text-lg sm:text-xl">{title}</h2>
+                <h3 className="sm:text-lg">
                     <span className="italic">Technologies: </span>
                     {technologiesText}
                 </h3>

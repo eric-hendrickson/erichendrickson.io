@@ -2,13 +2,16 @@
 
 import HomepageSection from '@/components/homepage/HomepageSection';
 import { EMAIL_REGEX } from '@/globalsConstants';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Snackbar, Alert } from '@mui/material';
 import { useState } from 'react';
 
 export default function Contact() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+
+    const [successSnackbarOpen, setSuccessSnackbarOpen] = useState(false);
+    const [failureSnackbarOpen, setFailureSnackbarOpen] = useState(false);
 
     const formIsValid = () => {
         if (name.length && message.length && EMAIL_REGEX.test(email)) {
@@ -17,30 +20,32 @@ export default function Contact() {
         return false;
     };
 
+    const handleCloseSuccessSnackbar = () => {
+        setSuccessSnackbarOpen(false);
+    };
+
+    const handleCloseFailureSnackbar = () => {
+        setSuccessSnackbarOpen(false);
+    };
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event?.preventDefault();
 
         try {
             const contactEmailApiUrl = 'https://xnvje1we7f.execute-api.us-west-2.amazonaws.com/prod/contact';
-            const response = await fetch(contactEmailApiUrl, {
+            await fetch(contactEmailApiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ name, email, message }),
             });
-            if (response.status === 200) {
-                setName('');
-                setEmail('');
-                setMessage('');
-                return alert('Email has been successfully sent');
-            } else {
-                // eslint-disable-next-line no-console
-                console.log(response);
-            }
+            setName('');
+            setEmail('');
+            setMessage('');
+            setSuccessSnackbarOpen(true);
         } catch (error) {
-            // eslint-disable-next-line no-console
-            console.log(error);
+            setFailureSnackbarOpen(true);
         }
     };
 
@@ -109,6 +114,26 @@ export default function Contact() {
                     >
                         Send Message
                     </Button>
+                    <Snackbar
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                        open={successSnackbarOpen}
+                        autoHideDuration={5000}
+                        onClose={handleCloseSuccessSnackbar}
+                    >
+                        <Alert onClose={handleCloseSuccessSnackbar} severity="success" sx={{ width: '100%' }}>
+                            Email has been successfully sent.
+                        </Alert>
+                    </Snackbar>
+                    <Snackbar
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                        open={failureSnackbarOpen}
+                        autoHideDuration={5000}
+                        onClose={handleCloseFailureSnackbar}
+                    >
+                        <Alert onClose={handleCloseFailureSnackbar} severity="error" sx={{ width: '100%' }}>
+                            There was an error in submitting the form. Please try again later.
+                        </Alert>
+                    </Snackbar>
                 </form>
             </div>
         </HomepageSection>

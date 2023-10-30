@@ -16,9 +16,8 @@ export default function AboutMe() {
                     framework to play with is Next.js (in fact, I made this page using it).
                 </p>
                 <p className="py-4 text-xl">
-                    Feel free to connect with me or follow me on the following socials, or view or download my resume.
-                    If you want to contact me, please feel free to use the form at the bottom of this page (Work in
-                    Progress).
+                    {/* Feel free to connect with me or follow me on the following socials, or view or download my resume. */}
+                    If you want to contact me, please feel free to use the form at the bottom of this page.
                 </p>
                 {/* <div className="flex w-full flex-row items-center justify-center py-4">SOCIALS HERE</div>
                 <a className="py-4 text-xl">VIEW/DOWNLOAD MY LATEST RESUME</a> */}
