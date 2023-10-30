@@ -64,9 +64,8 @@ export async function POST(request: NextRequest) {
             body: JSON.stringify({ name, email, message }),
         });
         return response;
-    } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e);
+    } catch (error) {
+        return error;
     }
 
     return new Response('Hello, Next.js!');
