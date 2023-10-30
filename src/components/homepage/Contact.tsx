@@ -21,51 +21,6 @@ export default function Contact() {
         event?.preventDefault();
 
         try {
-            let badRequest = false;
-            let noName = false;
-            let noEmail = false;
-            let badEmailFormat = false;
-            let noMessage = false;
-
-            if (!name || typeof name !== 'string') {
-                noName = true;
-                badRequest = true;
-            }
-
-            if (!email || typeof email !== 'string') {
-                noEmail = true;
-                badRequest = true;
-            } else {
-                if (!email.match(EMAIL_REGEX)) {
-                    badEmailFormat = true;
-                    badRequest = true;
-                }
-            }
-
-            if (!message || typeof message !== 'string') {
-                noMessage = true;
-                badRequest = true;
-            }
-
-            if (badRequest) {
-                const errorMessageArray = [];
-                if (noName) {
-                    errorMessageArray.push('value "name" is not present or is invalid');
-                }
-                if (noEmail) {
-                    errorMessageArray.push('value "email" is not present or is invalid');
-                }
-                if (badEmailFormat) {
-                    errorMessageArray.push('value "email" is improperly formatted');
-                }
-                if (noMessage) {
-                    errorMessageArray.push('value "message" is not present or is invalid');
-                }
-                const errorMessage = errorMessageArray.join('; ');
-
-                throw new Error(errorMessage);
-            }
-
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -78,7 +33,10 @@ export default function Contact() {
                 }),
             });
             if (response.status === 200) {
-                alert('Email sent!');
+                setName('');
+                setEmail('');
+                setMessage('');
+                return alert('Email has been successfully sent');
             }
         } catch (error) {
             // eslint-disable-next-line no-console
