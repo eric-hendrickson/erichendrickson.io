@@ -37,6 +37,9 @@ export default function Contact() {
                 setEmail('');
                 setMessage('');
                 return alert('Email has been successfully sent');
+            } else {
+                // eslint-disable-next-line no-console
+                console.log(response);
             }
         } catch (error) {
             // eslint-disable-next-line no-console
