@@ -5,7 +5,7 @@ export default function Footer() {
                 <p className="w-full whitespace-nowrap text-sm font-medium dark:text-white">
                     &copy; Eric Hendrickson 2023
                 </p>
-                <p className="w-full pb-4 text-sm font-medium dark:text-white">
+                <p className="w-full text-sm font-medium dark:text-white">
                     This page was created using the Next.js framework. Want to learn how to build one just like this?
                     Click{' '}
                     <a
@@ -17,6 +17,18 @@ export default function Footer() {
                         here
                     </a>
                     .
+                </p>
+                <p className="w-full pb-4 text-sm font-medium dark:text-white">
+                    It was also deployed using AWS CDK. After you build your Next.js page, you are free to use my{' '}
+                    <a
+                        className="font-bold text-blue-400 underline"
+                        target="_blank"
+                        href="https://github.com/eric-hendrickson/next-js-cdk"
+                        rel="noreferrer"
+                    >
+                        GitHub repo featuring my CDK implementation
+                    </a>{' '}
+                    for inspiration.
                 </p>
             </div>
         </footer>
