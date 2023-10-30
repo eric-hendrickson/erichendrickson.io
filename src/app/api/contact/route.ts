@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
             throw new Error(errorMessage);
         }
 
-        const contactEmailApiUrl = String(process.env.API_URL) + 'contact';
+        const contactEmailApiUrl = 'https://xnvje1we7f.execute-api.us-west-2.amazonaws.com/prod/contact';
         const response = await fetch(contactEmailApiUrl, {
             method: 'POST',
             headers: {
