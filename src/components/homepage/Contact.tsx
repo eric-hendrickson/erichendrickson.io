@@ -131,7 +131,7 @@ export default function Contact() {
                         onClose={handleCloseFailureSnackbar}
                     >
                         <Alert onClose={handleCloseFailureSnackbar} severity="error" sx={{ width: '100%' }}>
-                            There was an error in submitting the form. Please try again later.
+                            There was an error in sending the email. Please try again later.
                         </Alert>
                     </Snackbar>
                 </form>
