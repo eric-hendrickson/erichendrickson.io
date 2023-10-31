@@ -25,14 +25,14 @@ export default function Contact() {
     };
 
     const handleCloseFailureSnackbar = () => {
-        setSuccessSnackbarOpen(false);
+        setFailureSnackbarOpen(false);
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event?.preventDefault();
 
         try {
-            const contactEmailApiUrl = 'https://xnvje1we7f.execute-api.us-west-2.amazonaws.com/prod/contact';
+            const contactEmailApiUrl = 'https://mg3zbcpnfb.execute-api.us-west-2.amazonaws.com/prod/contact';
             await fetch(contactEmailApiUrl, {
                 method: 'POST',
                 headers: {
