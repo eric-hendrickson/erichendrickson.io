@@ -1,7 +1,7 @@
 'use client';
 
 import HomepageSection from '@/components/homepage/HomepageSection';
-import { EMAIL_REGEX } from '@/globalsConstants';
+import { API_URL, EMAIL_REGEX } from '@/globalsConstants';
 import { TextField, Button, Snackbar, Alert } from '@mui/material';
 import { useState } from 'react';
 
@@ -32,7 +32,7 @@ export default function Contact() {
         event?.preventDefault();
 
         try {
-            const contactEmailApiUrl = 'https://mg3zbcpnfb.execute-api.us-west-2.amazonaws.com/prod/contact';
+            const contactEmailApiUrl = `${API_URL}/contact`;
             await fetch(contactEmailApiUrl, {
                 method: 'POST',
                 headers: {
