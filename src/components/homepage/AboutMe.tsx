@@ -13,7 +13,18 @@ export default function AboutMe() {
                 <p className="py-4 text-xl">
                     I have worked on both front end and back end for a variety of projects. The clients I have done work
                     for include CVS and the Motion Picture Association, along with others. Lately, my new favorite
-                    framework to play with is Next.js (in fact, I made this page using it).
+                    framework to play with is Next.js (in fact, I made this page using it). Also, as a way to keep sharp
+                    with AWS (particularly CDK), and in order to deploy this website, I created{' '}
+                    <a
+                        className="font-bold text-blue-700 underline"
+                        target="_blank"
+                        href="https://github.com/eric-hendrickson/static-page-cdk"
+                        rel="noreferrer"
+                    >
+                        this repository
+                    </a>
+                    , which allows a user to deploy their static site automatically, provided their code has a valid
+                    buildspec.yaml.
                 </p>
                 <p className="py-4 text-xl">
                     {/* Feel free to connect with me or follow me on the following socials, or view or download my resume. */}
