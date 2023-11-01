@@ -23,11 +23,11 @@ export default function Footer() {
                     <a
                         className="font-bold text-blue-400 underline"
                         target="_blank"
-                        href="https://github.com/eric-hendrickson/next-js-cdk"
+                        href="https://github.com/eric-hendrickson/static-page-cdk"
                         rel="noreferrer"
                     >
                         GitHub repo featuring my CDK implementation
-                    </a>{' '}
+                    </a>
                     for inspiration.
                 </p>
             </div>
