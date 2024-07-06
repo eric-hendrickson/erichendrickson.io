@@ -6,6 +6,11 @@ export default function MyWork() {
         <HomepageSection id="my-work" heading="My Work" sectionBackgroundColor="bg-amber-700" textColor="text-white">
             <div className="flex w-full max-w-screen-2xl flex-wrap items-center justify-between gap-4 pt-4 text-black">
                 <ProjectArticle
+                    title="Geocode Address Collector"
+                    technologies={['Python']}
+                    imageLink={'/python-logo-only.svg'}
+                    imageAltText="Geocode Address Collector"             />
+                <ProjectArticle
                     title="Crumboard"
                     technologies={['Typescript', 'Angular', 'SCSS', 'MySQL']}
                     imageLink="/crumboard.avif"
