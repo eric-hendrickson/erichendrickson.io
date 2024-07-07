@@ -9,7 +9,13 @@ export default function MyWork() {
                     title="Geocode Address Collector"
                     technologies={['Python']}
                     imageLink={'/python-logo-only.svg'}
-                    imageAltText="Geocode Address Collector"             />
+                    imageAltText="Geocode Address Collector"
+                />
+                <ProjectArticle
+                    title="Static Page CDK Stack Builder"
+                    technologies={['AWS CDK, Typescript']}
+                    imageLink={'/aws.svg'}
+                    imageAltText='Static Page CDK Stack Builder' />
                 <ProjectArticle
                     title="Crumboard"
                     technologies={['Typescript', 'Angular', 'SCSS', 'MySQL']}
