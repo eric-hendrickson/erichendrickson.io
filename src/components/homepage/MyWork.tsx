@@ -15,7 +15,8 @@ export default function MyWork() {
                     title="Static Page CDK Stack Builder"
                     technologies={['AWS CDK, Typescript']}
                     imageLink={'/aws.svg'}
-                    imageAltText='Static Page CDK Stack Builder' />
+                    imageAltText="Static Page CDK Stack Builder"
+                />
                 <ProjectArticle
                     title="Crumboard"
                     technologies={['Typescript', 'Angular', 'SCSS', 'MySQL']}
