@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Installing Next.js app dependencies...
-      - n install 18
+      - n install 20
       - node --version
       - npm install next -g
       - npm install
