@@ -2,9 +2,10 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions: 
+      nodejs: 20
     commands:
       - echo Installing Next.js app dependencies...
-      - n install 20
       - node --version
       - npm install next -g
       - npm install
