@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import { IProjectArticle } from '@/models/IProjectArticle';
 
-export default function ProjectArticle({ title, technologies, imageLink, imageAltText }: IProjectArticle) {
+export default function ProjectArticle({
+    title,
+    technologies,
+    imageLink,
+    imageAltText,
+}: IProjectArticle) {
     const technologiesText: string = technologies.join(', ');
 
     return (

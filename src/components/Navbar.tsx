@@ -11,7 +11,9 @@ import { KeyValuePair } from 'tailwindcss/types/config';
 import { ILink } from '@/models/ILink';
 
 const fullConfig = resolveConfig(tailwindConfig);
-const MD_BREAKPOINT = parseInt((fullConfig?.theme?.screens as KeyValuePair<string, string>)['md']);
+const MD_BREAKPOINT = parseInt(
+    (fullConfig?.theme?.screens as KeyValuePair<string, string>)['md']
+);
 
 export default function Navbar({ links }: { links: ILink[] }) {
     const [hamburgerMenuIsClosed, setHamburgerMenuIsClosed] = useState(true);
@@ -33,7 +35,11 @@ export default function Navbar({ links }: { links: ILink[] }) {
         <nav className="sticky left-0 top-0 z-20 w-full border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
             <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4">
                 <a href="#" className="flex flex-row items-center">
-                    <img src="/portfolio.jpeg" className="mr-2 h-12 w-12 rounded-full" alt="Portfolio Photo"></img>
+                    <img
+                        src="/portfolio.jpeg"
+                        className="mr-2 h-12 w-12 rounded-full"
+                        alt="Portfolio Photo"
+                    ></img>
                     <div className="flex flex-col">
                         <span className="whitespace-nowrap text-xl font-semibold dark:text-white">
                             Eric Hendrickson
@@ -51,14 +57,19 @@ export default function Navbar({ links }: { links: ILink[] }) {
                         {links.map((link) => {
                             return (
                                 <li key={`navbar-link-${link?.label}`}>
-                                    <NavbarLink label={link?.label} url={link?.url}></NavbarLink>
+                                    <NavbarLink
+                                        label={link?.label}
+                                        url={link?.url}
+                                    ></NavbarLink>
                                 </li>
                             );
                         })}
                     </ul>
                 </div>
                 <button
-                    onClick={() => setHamburgerMenuIsClosed(!hamburgerMenuIsClosed)}
+                    onClick={() =>
+                        setHamburgerMenuIsClosed(!hamburgerMenuIsClosed)
+                    }
                     data-collapse-toggle="navbar-hamburger"
                     type="button"
                     className="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
@@ -80,12 +91,20 @@ export default function Navbar({ links }: { links: ILink[] }) {
                         ></path>
                     </svg>
                 </button>
-                <div className={`${hamburgerMenuIsClosed ? 'hidden' : ''} w-full`} id="navbar-hamburger">
+                <div
+                    className={`${
+                        hamburgerMenuIsClosed ? 'hidden' : ''
+                    } w-full`}
+                    id="navbar-hamburger"
+                >
                     <ul className="mt-4 flex flex-col rounded-lg bg-gray-50 font-medium dark:border-gray-700 dark:bg-gray-800">
                         {links.map((link) => {
                             return (
                                 <li key={`hamburger-link-${link?.label}`}>
-                                    <HamburgerLink label={link?.label} url={link?.url}></HamburgerLink>
+                                    <HamburgerLink
+                                        label={link?.label}
+                                        url={link?.url}
+                                    ></HamburgerLink>
                                 </li>
                             );
                         })}
