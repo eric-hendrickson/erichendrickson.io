@@ -6,8 +6,8 @@ export default function Footer() {
                     &copy; Eric Hendrickson 2024
                 </p>
                 <p className="w-full text-sm font-medium dark:text-white">
-                    This page was created using the Next.js framework. Want to learn how to build one just like this?
-                    Click{' '}
+                    This page was created using the Next.js framework. Want to
+                    learn how to build one just like this? Click{' '}
                     <a
                         className="font-bold text-blue-400 underline"
                         target="_blank"
@@ -19,7 +19,8 @@ export default function Footer() {
                     .
                 </p>
                 <p className="w-full pb-4 text-sm font-medium dark:text-white">
-                    It was also deployed using AWS CDK. After you build your Next.js page, you are free to use my{' '}
+                    It was also deployed using AWS CDK. After you build your
+                    Next.js page, you are free to use my{' '}
                     <a
                         className="font-bold text-blue-400 underline"
                         target="_blank"
